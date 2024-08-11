@@ -913,6 +913,7 @@ if (OPENSSL_ZLIB AND ( NOT OPENSSL_ZLIB_DYNAMIC ) )
     target_link_libraries(crypto PUBLIC ZLIB::ZLIB)
 endif()
 if (WIN32)
+    target_link_libraries(crypto PUBLIC user32 advapi32)
     set_target_properties(crypto PROPERTIES
         RUNTIME_OUTPUT_NAME "${LIBCRYPTO_RUNTIME_OUTPUT_NAME}"
     )
